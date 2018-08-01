@@ -1,0 +1,20 @@
+<div>
+  <form [formGroup]="rForm" (ngSubmit)="loginUser(rForm.value)">
+    <div class="form-container">
+      <div class="row columns">
+        <h1>Login Form</h1>
+        <label>Login
+          <input type="text" formControlName="login">
+        </label>
+        <div class="alert" *ngIf="!rForm.controls['login'].valid && rForm.controls['login'].touched">{{ titleAlert }}</div>
+
+        <label>Password
+          <input type="password" formControlName="password">
+        </label>
+        <div class="alert" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">{{ titleAlert }}</div>
+
+        <input type="submit" class="button expanded" value="Login" [disabled]="!rForm.valid">
+      </div>
+    </div>
+  </form>
+</div>

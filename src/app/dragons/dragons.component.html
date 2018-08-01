@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>List of dragons:</h2>
+  <table *ngIf="dragons && dragons.length">
+    <thead>
+      <tr>
+        <th>Name:</th>
+        <th colspan="2">Action:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dragon of dragons">
+        <td class="name"><a routerLink="/dragon/{{dragon.slug}}" title="View more from {{ dragon.name }}">{{ dragon.name }}</a></td>
+        <td>
+          <a routerLink="/dragon/{{dragon.slug}}/edit" title="Edit {{ dragon.name }}"><i class="fas fa-edit"></i></a>
+        </td>
+        <td>
+          <a (click)="deleteDragon(dragon.slug)" title="Remove {{ dragon.name }}"><i class="fas fa-trash"></i></a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a routerLink="/" title="Back to login page"><i class="fas fa-hand-point-left"></i> Back to login page</a><br>
+        </td>
+        <td colspan="2">
+          <a routerLink="/dragon/new" title="Add New Dragon"><i class="fas fa-plus-circle"></i> Add New Dragon</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
